@@ -58,11 +58,12 @@ namespace myadmin.Controllers
                 ativo = "S"
             };
 
-            //if (!bp.ValidaUnidade(usuario))
-            //{
-                //this.AddMessage("Cadastro", "Usuario já cadastrada em nossa base dados", "warning");
-               // return View(model);
-            //}
+            BPUsuario bp = new BPUsuario();
+            if (!bp.ValidaUnidade(usuario))
+            {
+                this.AddMessage("Cadastro", "Usuario já cadastrada em nossa base dados", "warning");
+                return View(model);
+            }
             try
             {
                     new BPUsuario().InserirOuAtualizar(usuario);
