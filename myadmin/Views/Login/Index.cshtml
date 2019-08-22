@@ -1,0 +1,82 @@
+﻿@model myadmin.Models.LoginModels
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <title>My Admin</title>
+    <!--CSS da page Login-->
+    <link href="~/Content/css_login.css" rel="stylesheet" type="text/css" />
+
+    <!--CSS Global-->
+    <link href="~/Content/vendors.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/style.bundle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- begin::Body -->
+    <body>
+        <!-- begin:: Page -->
+        <div class="kt-grid kt-grid--ver kt-grid--root kt-page">
+            <div class="kt-grid kt-grid--hor kt-grid--root  kt-login kt-login--v4 kt-login--signin" id="kt_login">
+                <div class="kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor background-bg">
+                    <div class="kt-grid__item kt-grid__item--fluid kt-login__wrapper">
+                        <div class="kt-login__container">
+                            <div class="kt-login__signin">
+                                <div class="kt-login__head">
+                                    <h3 class="kt-login__title">Faça o Seu Login</h3>
+                                </div>
+                                @using (Html.BeginForm("Validar", "Login", FormMethod.Post, new { @class = "kt-form" }))
+                                {
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.usuario, new { htmlAttributes = new { @class = "form-control", @id = "loginEmail", @placeholder = "Email" } })
+                                    </div>
+                                    <div class="input-group">
+                                        @Html.EditorFor(model => model.senha, new { htmlAttributes = new { @class = "form-control", @id = "password", @placeholder = "Senha", @type = "password" } })
+                                    </div>
+                                    <div class="kt-login__actions">
+                                        <button class="btn btn-brand btn-pill kt-login__btn-primary" type="submit">Entrar</button>
+                                    </div>
+                                }
+                            </div>
+                            <div class="kt-login__account">
+                                <span class="kt-login__account-msg">Você não possui uma conta?</span>
+                                &nbsp;&nbsp;
+                                <a href='@Url.Action("Cadastrar","Login")' class="kt-login__account-link">Faça aqui</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- end:: Page -->
+
+            <!-- Script Global-->
+            <script src="~/Content/js/vendors.bundle.js" type="text/javascript"></script>
+            <script src="~/Content/js/scripts.bundle.js" type="text/javascript"></script>
+
+            <!-- Script da pagina-->
+            <script src="~/Content/js/login/login-general.js"></script>
+            <script>
+        $(document).ready(function () {
+
+
+            $("#Password").focus();
+            $("#loginEmail").focus().trigger("change");
+
+
+          MensagemScript.ExibirMensagem("@ViewBag.Ativo", "@Html.Raw(@ViewBag.Titulo)", "@Html.Raw(@ViewBag.Corpo)", "@Html.Raw(@ViewBag.Tipo)");
+          MensagemScript.PainelAlert("@ViewBag.PanelAlert_Ativo","@Html.Raw(@ViewBag.PanelAlert_Titulo)","@Html.Raw(@ViewBag.PanelAlert_Mensagem)");
+
+            var modulo = '@ViewBag.Module';
+            var submodulo = '@ViewBag.subModule';
+            var panelAlert = "@ViewBag.PanelAlert_Ativo";
+        });
+            </script>
+        </body>
+</html>
+
+
