@@ -4,3 +4,5 @@
 <p>Para começar vou colocar o script do banco que estou utilizando</p>
 
 <p><a href="https://github.com/JoyBarbosadev/myadmin/blob/master/createsql.sql">MYADMINDB.sql</a></p>
+
+<p>A ideia do projeto é fazer um sistema para gerenciar contas a pagar e receber</p>
