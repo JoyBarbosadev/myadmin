@@ -5,4 +5,4 @@
 
 <p><a href="https://github.com/JoyBarbosadev/myadmin/blob/master/createsql.sql">MYADMINDB.sql</a></p>
 
-<p>A ideia do projeto é fazer um sistema para gerenciar contas a pagar e receber</p>
+<p>Para dicas e auxilios, chama na dm @joy_william21</p>
